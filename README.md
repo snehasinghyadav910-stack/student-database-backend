@@ -63,6 +63,5 @@ student-database-backend/
 │   └── test_students.py
 │
 ├── main.py
-├── .env
 ├── .gitignore
 └── README.md
