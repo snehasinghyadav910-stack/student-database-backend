@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlmodel import Session
-
+from app.services.vector_db import add_student_to_vector_db
 from app.crud.student import (
     create_student,
     get_student,
@@ -17,11 +17,10 @@ router = APIRouter(prefix="/students", tags=["Students"])
 
 
 @router.post("/", response_model=StudentRead)
-def create_student_api(
-    student: StudentCreate,
-    session: Session = Depends(get_session),
-):
-    return create_student(session, student)
+def create_student_api(student: StudentCreate, session: Session = Depends(get_session)):
+    new_student = create_student(session, student)
+    add_student_to_vector_db(new_student)
+    return new_student
 
 
 @router.get("/", response_model=list[StudentRead])
