@@ -29,6 +29,21 @@ A modular backend application for managing student information using FastAPI, SQ
 - Pytest
 - Uvicorn
 
+## Vector Database Selection
+
+ChromaDB was selected as the vector database for this project because it provides simple Python integration, built-in similarity search, and works well with LangGraph and the Gemini-powered chatbot.
+
+### Selection Criteria
+
+- **Integration:** Easy integration with Python and ChromaDB client.
+- **Similarity Search:** Supports semantic similarity search for retrieving relevant student information.
+- **Scalability:** Suitable for the small-scale student database used in this project.
+- **Complexity:** Simple to set up and maintain compared with managed vector database services.
+- **Cost:** Open-source and suitable for development without additional database charges.
+- **Compatibility:** Works well with the Python, LangGraph, and Gemini-based architecture.
+
+For a larger production system, a managed vector database could be considered depending on scalability and infrastructure requirements.
+
 ## Project Structure
 
 ```text
